@@ -1,6 +1,7 @@
 const fromSelect = document.querySelector('[name="from_currency"]');
 const toSelect = document.querySelector('[name="to_currency"]');
-const endpoint = `http://api.exchangeratesapi.io/v1/latest?access_key=592219cee8a6245310099ca9f6947922`;
+var key = config.API_KEY;
+const endpoint = `http://api.exchangeratesapi.io/v1/latest?access_key=${key}`;
 const ratesByBase= {};
 
 const currencies = {
