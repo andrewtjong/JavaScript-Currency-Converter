@@ -60,6 +60,11 @@ async function convert(amount, from, to) {
     // store them for next time
     ratesByBase[from] = rates;
   }
+  // convert that amount that they passed it
+  const rate = ratesByBase[from].rates[to]
+  const convertedAmount = rate * amount;
+  console.log(`${amount} ${from} is $${convertedAmount} in ${to}`);
+  return convertedAmount
 }
 
 const optionsHTML = generateOptions(currencies)
