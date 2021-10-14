@@ -71,13 +71,20 @@ async function convert(amount, from, to) {
   return convertedAmount
 }
 
+function formatCurrency(amount, currency) {
+  return Intl.NumberFormat('en-US', {
+    style:'currency',
+    currency,
+  }).format(amount)
+}
+
 async function handleInput(e) {
   const rawAmount = await convert(
     fromInput.value, 
     fromSelect.value, 
     toSelect.value,
     );
-    toEl.textContent = rawAmount
+    toEl.textContent = formatCurrency(rawAmount,toSelect.value)
 }
 
 const optionsHTML = generateOptions(currencies)
